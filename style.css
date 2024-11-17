@@ -1,94 +1,165 @@
+/* Global Variables */
+:root {
+    --primary-color: #b3d4e4; /* Light blue for hover/focus */
+    --secondary-color: rgb(240, 232, 221); /* Light beige */
+    --background-image-url: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msOOU.img');
+    --button-bg-color: rgb(247, 228, 192); /* Button background color */
+    --button-border-color: rgb(190, 192, 190); /* Button border color */
+    --box-shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color */
+    --border-radius: 10px; /* Common border radius for rounded corners */
+    --padding-large: 50px 20px;
+    --padding-small: 10px 24px;
+    --font-size-normal: 16px;
+    --font-size-small: 14px;
+}
+
+/* Global Body Styles */
 body {
-    background-image: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msOOU.img');
+    background-image: var(--background-image-url);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
+
+/* Navbar Styling */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 15px;
-    background-color: rgb(240, 232, 221);
+    background-color: var(--secondary-color);
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px var(--box-shadow-color);
 }
+
+/* Logo Styling */
+.j {
+    width: 30px;
+    height: 30px;
+    border-radius: 12px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Navbar Links Styling */
 .nav_links {
     display: flex;
-    align-items: center;    /* Vertically center the logo and links */
-    justify-content: left; /* Horizontally center the links */
-    gap: 20px;              /* Space between each link */
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
     flex-grow: 1;
 }
+
 .nav_links a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333; /* Dark text color for links */
-    font-size: 16px;
+    color: #333;
+    font-size: var(--font-size-normal);
     font-weight: bold;
     padding: 10px 24px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;}
-.nav_links a:focus {
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 5px #b3d4e4; /* Add custom focus effect */
-    }
-.nav_links a:hover {
-    background-color: #b3d4e4;
-}
-.logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Focus and Hover Effects */
+.nav_links a:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.nav_links a:hover {
+    background-color: var(--primary-color);
+}
+
+/* Button Styling */
 button {
-    background-color: rgb(247, 228, 192);
+    background-color: var(--button-bg-color);
     border-radius: 5px;
-    padding: 10px 24px; 
-    border: 1px solid rgb(190, 192, 190);
-    cursor: pointer; /* Add a pointer cursor */
+    padding: var(--padding-small); 
+    border: 1px solid var(--button-border-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #b3d4e4;
+    background-color: var(--primary-color);
 }
 
 button:focus {
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 5px #b3d4e4; /* Add custom focus effect */
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-color);
 }
 
-@media (max-width: 430px ) {
-    button{
+/* Main Content and Other Sections */
+#mainContent, #aboutContent, #offersContent {
+    display: none; /* All sections hidden by default */
+    background-color: #fff;
+    padding: var(--padding-large);
+    margin: 15px;
+    border-radius: var(--border-radius);
+    border-top: 3px solid var(--secondary-color);
+    box-shadow: 0 4px 12px var(--box-shadow-color); /* Subtle shadow */
+    transition: all 0.3s ease;
+}
+
+/* Content within the Sections */
+.menu-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.menu-bar h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.menu-bar p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 430px) {
+    button {
         padding: 5px 10px;
     }
-    .nav{
+    .nav {
         padding: 7px 20px;
         margin: 7px;
         border-radius: 7px;
     }
-    .logo{
+    .j {
         width: 30px;
         height: 30px;
+    }
+    .nav_links a {
+        font-size: var(--font-size-small);
+        padding: 8px 18px;
     }
 }
 
 @media (min-width: 431px) and (max-width: 1100px) {
-    button{
+    button {
         padding: 7px 20px;
     }
-    .nav{
+    .nav {
         padding: 10px;
         margin: 10px;
         border-radius: 7px;
     }
-    .logo{
+    .j {
         width: 30px;
         height: 30px;
+    }
+    .nav_links a {
+        font-size: 15px;
     }
 }
