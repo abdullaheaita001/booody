@@ -10,7 +10,7 @@
     --padding-large: 50px 20px;
     --padding-small: 10px 24px;
     --font-size-normal: 16px;
-    --font-size-small: 14px;
+    --font-size-small: 10px;
 }
 
 /* Global Body Styles */
@@ -22,6 +22,33 @@ body {
     padding: 0;
     margin: 0;
     font-family: Arial, sans-serif;
+}
+
+
+body[lang="ar"] .nav_links {
+    flex-direction: row-reverse; /* Reverses the order for Arabic */
+}
+
+body[lang="ar"] .nav img {
+    margin-left: 0;
+    margin-right: 15px;
+}
+.language-btn {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.language-btn:hover {
+    background-color: #b3d4e4;
 }
 
 /* Navbar Styling */
@@ -41,17 +68,17 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 12px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 5px;
 }
 
 /* Navbar Links Styling */
 .nav_links {
     display: flex;
     align-items: center;
-    justify-content: left;
-    gap: 20px;
+    justify-content: flex-start;
     flex-grow: 1;
+    gap: 10px;
+    margin-left: 5px;
 }
 
 .nav_links a {
@@ -107,7 +134,24 @@ button:focus {
     box-shadow: 0 4px 12px var(--box-shadow-color); /* Subtle shadow */
     transition: all 0.3s ease;
 }
-
+.paarent{
+    background-color: rgb(242, 221, 221);
+    padding: 10px;
+    overflow: hidden;
+}
+.paarent div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    background-color: rgb(248, 243, 243);
+    width: 23.75%;
+    margin-left: 1%;
+    float: left;
+}
+.clear{
+    clear: both;
+}
 /* Content within the Sections */
 .menu-bar {
     max-width: 1200px;
@@ -130,10 +174,11 @@ button:focus {
 @media (max-width: 430px) {
     button {
         padding: 5px 10px;
+        font-size: var(--font-size-small);
     }
     .nav {
-        padding: 7px 20px;
-        margin: 7px;
+        padding: 1px;
+        margin: 4px;
         border-radius: 7px;
     }
     .j {
@@ -142,7 +187,15 @@ button:focus {
     }
     .nav_links a {
         font-size: var(--font-size-small);
-        padding: 8px 18px;
+        padding: 7px 10px;
+    }
+    .language-btn {
+        font-size: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+    .nav_button{
+        padding: 4px;
     }
 }
 
@@ -161,5 +214,8 @@ button:focus {
     }
     .nav_links a {
         font-size: 15px;
+    }
+    .language-btn {
+        font-size: 12px;
     }
 }
